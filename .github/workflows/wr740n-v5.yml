@@ -1,4 +1,4 @@
-name: Build ImmortalWrt
+name: Build ImmortalWrt - WR740n-v5-mod
 
 on:
   workflow_dispatch:
@@ -53,5 +53,5 @@ jobs:
       - name: Upload firmware
         uses: actions/upload-artifact@v4
         with:
-          name: firmware
-          path: immortalwrt/bin/targets/ath79/tiny/*.bin
+          name: immortalwrt-wr740n-v5mod-firmware-sysupgrade.bin
+          path: immortalwrt/bin/targets/ath79/tiny/*sysupgrade.bin
