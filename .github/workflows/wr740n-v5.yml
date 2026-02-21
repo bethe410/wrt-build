@@ -39,12 +39,6 @@ jobs:
           cp ../configs/wr740n-v5.config .config
           make defconfig
 
-      - name: Cache downloads
-        uses: actions/cache@v4
-        with:
-          path: immortalwrt/dl
-          key: ${{ runner.os }}-dl
-
       - name: Build
         run: |
           cd immortalwrt
