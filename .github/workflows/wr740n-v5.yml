@@ -51,7 +51,7 @@ jobs:
           make -j$(nproc)
 
       - name: Upload firmware
-        uses: softprops/action-gh-release@v1
+        uses: actions/upload-artifact@v4
         with:
           name: firmware
-          files: immortalwrt/bin/targets/ath79/tiny/*.bin
+          path: immortalwrt/bin/targets/ath79/tiny/*.bin
