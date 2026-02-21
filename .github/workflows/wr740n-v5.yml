@@ -1,4 +1,4 @@
-name: Build ImmortalWrt - WR740n-v5-mod
+name: Build ImmortalWrt for WR740n-v5-mod
 
 on:
   workflow_dispatch:
@@ -33,9 +33,9 @@ jobs:
       - name: Configure
         run: |
           cd immortalwrt
-          cp ../configs/wr740n-v5.sh fix-me.sh
-          chmod +x fix-me.sh
-          ./fix-me.sh
+          cp ../configs/wr740n-v5.sh patch-me.sh
+          chmod +x patch-me.sh
+          ./patch-me.sh
           cp ../configs/wr740n-v5.config .config
           make defconfig
 
@@ -47,5 +47,5 @@ jobs:
       - name: Upload firmware
         uses: actions/upload-artifact@v4
         with:
-          name: immortalwrt-wr740n-v5mod-firmware-sysupgrade.bin
+          name: firmware-sysupgrade.zip
           path: immortalwrt/bin/targets/ath79/tiny/*sysupgrade.bin
