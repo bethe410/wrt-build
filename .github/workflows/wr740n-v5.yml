@@ -21,7 +21,7 @@ jobs:
 
       - name: Clone ImmortalWrt
         run: |
-          git clone -b openwrt-24.10 --single-branch --filter=blob:none https://github.com/immortalwrt/immortalwrt
+          git clone -b openwrt-23.05 --single-branch --filter=blob:none https://github.com/immortalwrt/immortalwrt
           cd immortalwrt
 
       - name: Update feeds
@@ -51,7 +51,7 @@ jobs:
           make -j$(nproc)
 
       - name: Upload firmware
-        uses: actions/upload-artifact@v4
+        uses: softprops/action-gh-release@v1
         with:
           name: firmware
-          path: immortalwrt/bin/targets/
+          files: immortalwrt/bin/targets/ath79/tiny/*.bin
